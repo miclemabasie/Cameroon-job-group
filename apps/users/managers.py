@@ -43,6 +43,10 @@ class CustomUserManager(BaseUserManager):
         return user
 
     def create_superuser(username, first_name, last_name, password, **extra_fields):
+        # This function does not create a superuser
+        # It only sets the neccessary attributes required for creating a superuser
+        # And also checks the required attributes for being a superuser
+
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
@@ -62,8 +66,11 @@ class CustomUserManager(BaseUserManager):
         else:
             raise ValueError(_("Admin Account: An email address is required"))
 
+        # After validation of all the neccessary information for the creation of a superuser
+        # pass the information to the create_user function above to handle the creation  of the user
         user = self.create_user(
             username, first_name, last_name, email, password, **extra_fields
         )
+        # Ther create_user function returns  a user object back at this point
         user.save(using=self._db)
         return user
