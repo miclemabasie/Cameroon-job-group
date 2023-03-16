@@ -19,7 +19,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     # Changing the defualt username to email
     USERNAME_FIELD = "email"
-    REQUIRED_FIELD = ["username", "first_name", "last_name"]
+    REQUIRED_FIELDS = ["username", "first_name", "last_name"]
     # specify a new model manager for the user
     objects = CustomUserManager()
 

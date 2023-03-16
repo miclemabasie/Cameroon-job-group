@@ -33,16 +33,19 @@ class CustomUserManager(BaseUserManager):
             username=username,
             first_name=first_name,
             last_name=last_name,
-            email=email**extra_fields,
+            email=email,
+            **extra_fields,
         )
 
         user.set_password(password)
         extra_fields.setdefault("is_staff", False)
-        extra_fields.setdefault("is_superuser", Fasle)
+        extra_fields.setdefault("is_superuser", False)
         user.save(using=self._db)
         return user
 
-    def create_superuser(username, first_name, last_name, password, **extra_fields):
+    def create_superuser(
+        self, username, first_name, last_name, email, password, **extra_fields
+    ):
         # This function does not create a superuser
         # It only sets the neccessary attributes required for creating a superuser
         # And also checks the required attributes for being a superuser
