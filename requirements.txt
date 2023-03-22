@@ -26,3 +26,6 @@ regex==2022.10.31
 sqlparse==0.4.3
 toml==0.10.2
 tomli==2.0.1
+djoser==2.1.0
+djangorestframework-simplejwt==4.8.0
+pyJWT==2.1.0

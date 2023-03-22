@@ -6,6 +6,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path("superadmin/", admin.site.urls),
+    path("jobs/", include("apps.jobs.urls", namespace="jobs")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
