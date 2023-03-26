@@ -1,6 +1,6 @@
 import environ
 from pathlib import Path
-
+# Base settings file 
 # set default debug value to false
 env = environ.Env(DEBUG=(bool, False))
 
